@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -16,12 +18,13 @@ class UserTableSeeder extends Seeder
         $adminRole = Role::where('name', 'Administrator')->first();
         $editorRole = Role::where('name', 'Editor')->first();
         $userRole = Role::where('name', 'User')->first();
-	$authorRole = Role::where('name', 'Author')->first();
+	    $authorRole = Role::where('name', 'Author')->first();
 
         $admin = User::create([
-            'name' => 'AzartPlanet Admin',
+            'username' => 'Administrator',
+            'name' => 'Administrator',
             'email' => 'admin@email.com',
-            'password' => bcrypt('xdemonx1234'),
+            'password' => Hash::make('xdemonx1234'),
             'image' => 'default.png'
         ]);
 

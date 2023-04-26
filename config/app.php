@@ -18,6 +18,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'domain' => env('APP_DOMAIN', 'localhost:8000'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -159,6 +161,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Jenssegers\Agent\AgentServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -183,6 +187,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ])->toArray(),
 
 ];
